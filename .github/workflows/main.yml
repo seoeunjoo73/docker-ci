@@ -15,7 +15,7 @@ jobs:
         id: docker_meta                             
         uses: crazy-max/ghaction-docker-meta@v1     
         with:                                       
-          images: newfairy/nodejs-ci                
+          images: newfairy/nodejs-ci               
           tag-semver: |                             
             {{version}}
             {{major}}.{{minor}}
@@ -30,6 +30,7 @@ jobs:
         with:                                        
           username: ${{ secrets.DOCKER_HUB_USERNAME }}    
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}    
+          
       - name: Build and push Docker Image
         uses: docker/build-push-action@v4
         with:
